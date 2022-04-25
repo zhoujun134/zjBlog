@@ -1,0 +1,25 @@
+
+
+                   jjjj      BBBBBBBBBBBBBBBBB   lllllll
+                  j::::j     B::::::::::::::::B  l:::::l
+                   jjjj      B::::::BBBBBB:::::B l:::::l
+                             BB:::::B     B:::::Bl:::::l
+zzzzzzzzzzzzzzzzzjjjjjjj       B::::B     B:::::B l::::l    ooooooooooo      ggggggggg   ggggg
+z:::::::::::::::zj:::::j       B::::B     B:::::B l::::l  oo:::::::::::oo   g:::::::::ggg::::g
+z::::::::::::::z  j::::j       B::::BBBBBB:::::B  l::::l o:::::::::::::::o g:::::::::::::::::g
+zzzzzzzz::::::z   j::::j       B:::::::::::::BB   l::::l o:::::ooooo:::::og::::::ggggg::::::gg
+      z::::::z    j::::j       B::::BBBBBB:::::B  l::::l o::::o     o::::og:::::g     g:::::g
+     z::::::z     j::::j       B::::B     B:::::B l::::l o::::o     o::::og:::::g     g:::::g
+    z::::::z      j::::j       B::::B     B:::::B l::::l o::::o     o::::og:::::g     g:::::g
+   z::::::z       j::::j       B::::B     B:::::B l::::l o::::o     o::::og::::::g    g:::::g
+  z::::::zzzzzzzz j::::j     BB:::::BBBBBB::::::Bl::::::lo:::::ooooo:::::og:::::::ggggg:::::g
+ z::::::::::::::z j::::j     B:::::::::::::::::B l::::::lo:::::::::::::::o g::::::::::::::::g
+z:::::::::::::::z j::::j     B::::::::::::::::B  l::::::l oo:::::::::::oo   gg::::::::::::::g
+zzzzzzzzzzzzzzzzz j::::j     BBBBBBBBBBBBBBBBB   llllllll   ooooooooooo       gggggggg::::::g
+                  j::::j                                                              g:::::g
+        jjjj      j::::j                                                  gggggg      g:::::g
+       j::::jj   j:::::j                                                  g:::::gg   gg:::::g
+       j::::::jjj::::::j                                                   g::::::ggg:::::::g
+        jj::::::::::::j                                                     gg:::::::::::::g
+          jjj::::::jjj                                                        ggg::::::ggg
+             jjjjjj                                                              gggggg

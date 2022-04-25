@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zj.mapper.ArchiveMapper">
+    <select id="selectArchiveCount" resultType="com.zj.domain.vo.ArchiveCountVo">
+        select date_format(create_time, '%Y/%c') as date, count(*) as count
+        from article
+        group by date
+        order by date
+                desc
+        limit #{start},#{pageSize};
+    </select>
+
+    <select id="selectArchiveTotalCount" resultType="java.lang.Long">
+        select count(*)
+        from (select count(*) from article group by date_format(create_time, '%Y/%c')) as t
+    </select>
+
+    <select id="selectArchiveList" resultMap="ArchiveVoResultMap">
+        select date_format(create_time, '%Y') as year,
+               a.id                           as articleId,
+               a.title                        as articleTitle,
+               a.view_count                   as articleViewCount,
+               a.thumbnail                    as articleThumbnail,
+               a.create_time                  as articleCreateTime
+        from article as a
+        order by a.create_time desc
+        limit #{start}, #{pageSize}
+    </select>
+
+    <resultMap id="ArchiveVoResultMap" type="com.zj.domain.vo.ArchiveVo">
+        <id column="year" property="year"/>
+        <collection property="articles" ofType="com.zj.domain.vo.HotArticleVo">
+            <id column="articleId" property="id"/>
+            <result column="articleTitle" property="title"/>
+            <result column="articleThumbnail" property="thumbnail"/>
+            <result column="articleCreateTime" property="createTime"/>
+            <result column="articleViewCount" property="viewCount"/>
+        </collection>
+    </resultMap>
+</mapper>

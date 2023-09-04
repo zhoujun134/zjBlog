@@ -68,7 +68,7 @@ import {
   setToken,
   setUserInfo,
   removeToken,
-  removeUserInfo,
+  removeUserInfo
 } from "@/utils/storage";
 import { md5Encryption } from "@/utils/encrypt";
 import router from "../router/index";
@@ -78,7 +78,7 @@ export default {
   name: "Login",
   components: {
     User,
-    Lock,
+    Lock
   },
   setup() {
     removeToken();
@@ -88,7 +88,7 @@ export default {
 
     let ruleForm = reactive({
       userName: "",
-      password: "",
+      password: ""
     });
 
     let rules = reactive({
@@ -96,12 +96,12 @@ export default {
         {
           required: true,
           message: "用户名不能为空",
-          trigger: "change",
-        },
+          trigger: "change"
+        }
       ],
       password: [
-        { required: true, message: "密码不能为空", trigger: "change" },
-      ],
+        { required: true, message: "密码不能为空", trigger: "change" }
+      ]
     });
 
     function submitForm(form) {
@@ -128,9 +128,9 @@ export default {
       rules,
       ruleForm,
       ruleFormRef,
-      submitForm,
+      submitForm
     };
-  },
+  }
 };
 </script>
 

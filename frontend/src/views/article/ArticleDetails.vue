@@ -72,7 +72,7 @@
               <span class="copyright-content">
                 本博客所有文章除特别声明外，均采用
                 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/"
-                  >BY-NC-SA</a
+                >BY-NC-SA</a
                 >
                 许可协议。转载请注明出处！
               </span>
@@ -81,7 +81,9 @@
         </div>
 
         <!-- 评论信息-->
-        <div class="comments"><zj-comment :id="id"/> </div>
+        <div class="comments">
+          <zj-comment :id="id" />
+        </div>
 
         <!-- 标签 -->
         <div class="article-tags" v-if="articleDetails.tags">
@@ -94,7 +96,7 @@
             v-for="tag in articleDetails.tags"
             :key="tag.id"
             class="tag-link"
-            >{{ tag.name }}
+          >{{ tag.name }}
           </router-link>
         </div>
 
@@ -158,7 +160,7 @@
 import {
   getArticleDetails,
   getPreviousNextArticle,
-  updateViewCount,
+  updateViewCount
 } from "@/api/article";
 import { reactive, nextTick, ref } from "vue";
 import markdownIt from "../../utils/markdown-it";
@@ -227,13 +229,13 @@ export default {
       previousArticle,
       nextArticle,
       lightBoxRef,
-      editArticle,
+      editArticle
     };
   },
   props: {
     id: String,
-    articleId: Number,
-  },
+    articleId: Number
+  }
 };
 </script>
 
@@ -327,7 +329,7 @@ export default {
       cursor: pointer;
       cursor: zoom-in;
       box-shadow: 0 1px 15px rgba(27, 31, 35, 0.15),
-        0 0 1px rgba(106, 115, 125, 0.35);
+      0 0 1px rgba(106, 115, 125, 0.35);
     }
 
     h1 code,
@@ -635,6 +637,7 @@ export default {
     //display: flex;
     border-radius: 9px;
   }
+
   .previous-next-article {
     width: 100%;
     margin-top: 20px;

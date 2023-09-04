@@ -92,10 +92,10 @@ export default {
       postArticles,
       articleCount,
       pageSize,
-      onCurrentPageChanged,
+      onCurrentPageChanged
     };
   },
-  props: ["id", "name"],
+  props: ["id", "name"]
 };
 </script>
 

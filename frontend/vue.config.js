@@ -31,13 +31,13 @@ module.exports = {
         target: "http://localhost:8081/file",
         pathRewrite: { "^/image": "" },
       },
-      // "/v1/api": {
-      //   target: "http://localhost:8081",
-      //   changeOrigin: true,
-      //   pathRewrite: {
-      //     "^/v1/api": "",
-      //   },
-      // },
+      "/v1/api": {
+        target: "http://localhost:8081",
+        changeOrigin: true,
+        pathRewrite: {
+          "^/v1/api": "",
+        },
+      },
     },
   },
 };

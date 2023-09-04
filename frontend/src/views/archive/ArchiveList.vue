@@ -15,7 +15,7 @@
         <zj-hot-article-card />
         <zj-category-card />
         <zj-tag-card />
-<!--        <zj-archive-card />-->
+        <!--        <zj-archive-card />-->
       </div>
 
       <!-- 归档 -->
@@ -105,9 +105,16 @@ import { mapState } from "@/store/map";
 import { getArchiveList } from "@/api/archive";
 import { computed, reactive } from "vue";
 import { defaultThumbnail, useDefaultThumbnail } from "@/utils/thumbnail";
+import ZjHeader from "@/components/zjHeader.vue";
+import ZjWifeCover from "@/components/zjWifeCover.vue";
+import ZjTagCard from "@/components/zjTagCard.vue";
+import ZjCategoryCard from "@/components/zjCategoryCard.vue";
+import ZjHotArticleCard from "@/components/zjHotArticleCard.vue";
+import ZjAdminCard from "@/components/zjAdminCard.vue";
 
 export default {
   name: "ArchiveList",
+  components: { ZjAdminCard, ZjHotArticleCard, ZjCategoryCard, ZjTagCard, ZjWifeCover, ZjHeader },
   setup() {
     window.scrollTo({ top: 0 });
     let pageSize = 10;

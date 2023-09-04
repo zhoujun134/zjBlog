@@ -38,7 +38,7 @@ export default {
     let { categoryCounts } = mapState("categoryAbout");
 
     return { categoryCounts };
-  },
+  }
 };
 </script>
 

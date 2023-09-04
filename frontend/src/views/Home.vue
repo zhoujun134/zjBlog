@@ -81,9 +81,9 @@ export default {
       postArticles,
       articleCount,
       pageSize,
-      onCurrentPageChanged,
+      onCurrentPageChanged
     };
-  },
+  }
 };
 </script>
 

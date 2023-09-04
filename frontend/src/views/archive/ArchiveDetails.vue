@@ -55,9 +55,17 @@
 import { reactive, ref } from "vue";
 import { getPostArticleList } from "@/api/article";
 import { defaultThumbnail } from "@/utils/thumbnail";
+import ZjAdminCard from "@/components/zjAdminCard.vue";
+import ZjHotArticleCard from "@/components/zjHotArticleCard.vue";
+import ZjCategoryCard from "@/components/zjCategoryCard.vue";
+import ZjTagCard from "@/components/zjTagCard.vue";
+import ZjArchiveCard from "@/components/zjArchiveCard.vue";
+import ZjWifeCover from "@/components/zjWifeCover.vue";
+import ZjHeader from "@/components/zjHeader.vue";
 
 export default {
   name: "ArchiveDetails",
+  components: { ZjHeader, ZjWifeCover, ZjArchiveCard, ZjTagCard, ZjCategoryCard, ZjHotArticleCard, ZjAdminCard },
   setup(props) {
     let pageSize = 10;
     let postArticles = reactive([]);

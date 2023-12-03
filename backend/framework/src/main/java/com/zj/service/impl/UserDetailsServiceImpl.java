@@ -7,20 +7,20 @@ import com.zj.enums.AppHttpCodeEnum;
 import com.zj.mapper.AccessMapper;
 import com.zj.mapper.UserMapper;
 import com.zj.utils.Assert;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
-    @Autowired
+    @Resource
     private UserMapper userMapper;
 
-    @Autowired
+    @Resource
     private AccessMapper accessMapper;
 
     @Override

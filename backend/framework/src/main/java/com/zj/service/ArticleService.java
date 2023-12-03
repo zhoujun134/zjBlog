@@ -20,16 +20,16 @@ public interface ArticleService extends IService<Article> {
 
     ResponseResult<PageVo<ArticleListVo>> getArticleList(ArticleQueryDTO articleQueryDTO);
 
-    ResponseResult<ArticleDetailsVo> getArticleDetail(Long id);
+    ResponseResult<ArticleDetailsVo> getArticleDetail(String id);
 
     ResponseResult<ArticleCountVo> getArticleCount();
 
-    ResponseResult<Boolean> updateViewCount(Long id);
+    ResponseResult<Boolean> updateViewCount(String id);
 
-    ResponseResult<PreviousNextArticleVo> getPreviousNextArticle(Long id);
+    ResponseResult<PreviousNextArticleVo> getPreviousNextArticle(String id);
 
-    ResponseResult<Long> addArticle(ArticleDTO article);
+    ResponseResult<String> addArticle(ArticleDTO article);
 
-    ResponseResult<Long> editArticle(ArticleDTO article);
+    ResponseResult<String> editArticle(ArticleDTO article);
 }
 

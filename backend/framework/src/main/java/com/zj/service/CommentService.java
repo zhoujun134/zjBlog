@@ -19,7 +19,7 @@ public interface CommentService extends IService<Comment> {
      * @param pageSize 页面大小
      * @return 分页结果
      */
-    ResponseResult<PageVo<CommentVo>> getCommentList(Long articleId, Integer pageNum, Integer pageSize);
+    ResponseResult<PageVo<CommentVo>> getCommentList(String articleId, Integer pageNum, Integer pageSize);
 
     /**
      * 添加评论信息
@@ -33,6 +33,6 @@ public interface CommentService extends IService<Comment> {
      * @param commentId 评论 Id
      * @return 是否点赞成功
      */
-    ResponseResult<Boolean> addLike(Long commentId);
+    ResponseResult<Boolean> addLike(String commentId);
 }
 

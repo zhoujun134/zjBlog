@@ -14,14 +14,15 @@ import com.zj.service.UserService;
 import com.zj.utils.Assert;
 import com.zj.utils.BeanCopyUtils;
 import com.zj.utils.SecurityUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 
-    @Autowired
+    @Resource
     private PasswordEncoder passwordEncoder;
 
     @Override

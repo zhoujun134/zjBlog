@@ -12,7 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 public class CommentVo {
 
-    private Long id;
+    private String id;
     /**
      * 评论内容
      */

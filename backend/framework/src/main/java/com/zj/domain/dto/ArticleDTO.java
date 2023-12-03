@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ArticleDTO {
-    private Long id;
+    private String id;
 
     @NotBlank(message = "博客标题不能为空")
     private String title;

@@ -7,17 +7,17 @@ import com.zj.domain.vo.PageVo;
 import com.zj.mapper.ArchiveMapper;
 import com.zj.service.ArchiveService;
 import com.zj.service.ArticleService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 @Service
 public class ArchiveServiceImpl implements ArchiveService {
-    @Autowired
+    @Resource
     private ArchiveMapper archiveMapper;
 
-    @Autowired
+    @Resource
     private ArticleService articleService;
 
     @Override

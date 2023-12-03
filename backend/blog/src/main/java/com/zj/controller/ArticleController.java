@@ -7,10 +7,10 @@ import com.zj.domain.vo.*;
 import com.zj.service.ArticleService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -19,7 +19,7 @@ import java.util.List;
 @Api(tags = "文章信息")
 public class ArticleController {
 
-    @Autowired
+    @Resource
     private ArticleService articleService;
 
     @GetMapping("/hotArticleList")
@@ -36,21 +36,21 @@ public class ArticleController {
 
     @GetMapping("/{id}")
     @ApiOperation(value = "获取文章详情")
-    public ResponseResult<ArticleDetailsVo> getArticleDetail(@PathVariable("id") Long id) {
+    public ResponseResult<ArticleDetailsVo> getArticleDetail(@PathVariable("id") String id) {
         return articleService.getArticleDetail(id);
     }
 
     @PostMapping
     @PreAuthorize("hasAuthority('article:add')")
     @ApiOperation(value = "发表文章")
-    public ResponseResult<Long> addArticle(@Valid @RequestBody ArticleDTO article){
+    public ResponseResult<String> addArticle(@Valid @RequestBody ArticleDTO article){
         return articleService.addArticle(article);
     }
 
     @PutMapping
     @PreAuthorize("hasAuthority('article:edit')")
     @ApiOperation(value = "编辑文章")
-    public ResponseResult<Long> editArticle(@Valid @RequestBody ArticleDTO article){
+    public ResponseResult<String> editArticle(@Valid @RequestBody ArticleDTO article){
         return articleService.editArticle(article);
     }
 
@@ -62,13 +62,13 @@ public class ArticleController {
 
     @PutMapping("/updateViewCount/{id}")
     @ApiOperation(value = "更新阅读数量")
-    public ResponseResult<Boolean> updateViewCount(@PathVariable Long id){
+    public ResponseResult<Boolean> updateViewCount(@PathVariable String id){
         return articleService.updateViewCount(id);
     }
 
     @GetMapping("/previousNextArticle/{id}")
     @ApiOperation(value = "获取上一篇和下一篇文章")
-    public ResponseResult<PreviousNextArticleVo> getPreviousNextArticle(@PathVariable Long id){
+    public ResponseResult<PreviousNextArticleVo> getPreviousNextArticle(@PathVariable String id){
         return articleService.getPreviousNextArticle(id);
     }
 

@@ -4,13 +4,13 @@ import com.zj.domain.ResponseResult;
 import com.zj.service.FileService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.constraints.NotNull;
 import java.util.List;
@@ -25,8 +25,8 @@ import java.util.List;
 @Api(tags = "文件上传")
 public class FileController {
 
-    @Autowired
-    FileService fileService;
+    @Resource
+    private FileService fileService;
 
     @ApiOperation(value = "上传图片")
     @PostMapping(value = "/image/uploadImage", consumes = "multipart/form-data")

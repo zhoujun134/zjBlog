@@ -7,19 +7,20 @@ import com.zj.domain.vo.PageVo;
 import com.zj.service.CommentService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
 
 @RestController
 @RequestMapping("/comment")
 @Api(tags = "评论信息")
 public class CommentController {
-    @Autowired
+    @Resource
     private CommentService commentService;
 
     @GetMapping("/commentList")
     @ApiOperation(value = "获取所有评论")
-    public ResponseResult<PageVo<CommentVo>> getCommentList( Long articleId,
+    public ResponseResult<PageVo<CommentVo>> getCommentList( String articleId,
                                                              Integer pageNum,
                                                              Integer pageSize){
         return commentService.getCommentList(articleId, pageNum, pageSize);
@@ -34,7 +35,7 @@ public class CommentController {
 
     @PutMapping("/like/{id}")
     @ApiOperation(value = "增加评论的喜欢数")
-    public ResponseResult<Boolean> like(@PathVariable("id") Long id){
+    public ResponseResult<Boolean> like(@PathVariable("id") String id){
         return commentService.addLike(id);
     }
 

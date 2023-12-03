@@ -10,7 +10,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class HotArticleVo {
-    private Long id;
+    private String id;
 
     /**
      * 标题

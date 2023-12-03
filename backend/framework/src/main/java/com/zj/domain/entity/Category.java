@@ -1,12 +1,12 @@
 package com.zj.domain.entity;
 
-import java.util.Date;
-import java.io.Serializable;
-
 import com.baomidou.mybatisplus.annotation.*;
-import lombok.Data;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 分类表(Category)表实体类
@@ -23,8 +23,8 @@ public class Category implements Serializable {
 
     private static final long serialVersionUID = 853190758604791410L;
 
-    @TableId(type = IdType.AUTO)
-    private Long id;
+    @TableId(type = IdType.ASSIGN_UUID)
+    private String id;
 
     /**
      * 分类名
@@ -34,7 +34,7 @@ public class Category implements Serializable {
     /**
      * 父分类id，如果没有父分类为-1
      */
-    private Long pid;
+    private String pid;
 
     /**
      * 描述

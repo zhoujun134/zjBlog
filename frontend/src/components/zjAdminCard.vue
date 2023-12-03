@@ -87,6 +87,7 @@ export default {
 </script>
 
 <style scoped>
+
 @import url(../assets/css/material-icons.css);
 
 .admin-card {

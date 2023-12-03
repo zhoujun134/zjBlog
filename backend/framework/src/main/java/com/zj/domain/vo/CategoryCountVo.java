@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CategoryCountVo {
-    private Long id;
+    private String id;
     private String name;
     private Integer count;
-    private Long pid;
+    private String pid;
 }

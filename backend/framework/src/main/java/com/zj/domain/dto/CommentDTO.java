@@ -1,10 +1,10 @@
 package com.zj.domain.dto;
 
-import java.io.Serializable;
-
-import lombok.Data;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
 
 /**
  * 评论表(CommentDTO)表实体类
@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CommentDTO implements Serializable {
 
-    private Long id;
+    private String id;
 
     /**
      * 评论类型（0代表文章评论，1代表友链评论）

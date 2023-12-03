@@ -12,19 +12,20 @@ import com.zj.utils.Assert;
 import com.zj.utils.BeanCopyUtils;
 import com.zj.utils.JwtUtil;
 import com.zj.utils.RedisCache;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
 @Service
 public class BlogLoginServiceImpl implements BlogLoginService {
-    @Autowired
+    @Resource
     private AuthenticationManager authenticationManager;
 
-    @Autowired
+    @Resource
     private RedisCache redisCache;
 
     @Override

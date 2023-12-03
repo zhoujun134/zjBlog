@@ -12,7 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ArticleDetailsVo {
-    private Long id;
+    private String id;
     //标题
     private String title;
     //文章摘要

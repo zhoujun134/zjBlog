@@ -70,7 +70,7 @@ export default {
 
 .cover-title {
   font-family: "Kanit";
-  color: white;
+  color: black;
   font-size: 65px;
   margin: 0px;
   text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
@@ -81,7 +81,7 @@ export default {
   width: 60%;
   text-align: center;
   margin: 0 auto;
-  color: white;
+  color: black;
   font-size: 24px;
   font-family: "Long Cang", sans-serif;
   text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);

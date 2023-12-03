@@ -15,33 +15,33 @@ import com.zj.service.ArticleService;
 import com.zj.service.TagService;
 import com.zj.service.impl.converter.TagConverter;
 import com.zj.utils.BeanCopyUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
 public class TagServiceImpl extends ServiceImpl<TagMapper, Tag> implements TagService {
-    @Autowired
+    @Resource
     private ArticleService articleService;
 
-    @Autowired
+    @Resource
     private ArticleTagMapper articleTagMapper;
 
     @Override
     public ResponseResult<List<TagCountVo>> getTagCountList() {
         // 查询出所有非草稿文章携带的标签 id
         List<Article> articles = articleService.listNormalArticle();
-        List<Long> articleIds = articles.stream().map(Article::getId).collect(Collectors.toList());
+        List<String> articleIds = articles.stream().map(Article::getId).collect(Collectors.toList());
         QueryWrapper<ArticleTag> articleTagWrapper = new QueryWrapper<>();
         articleTagWrapper.in("article_id", articleIds);
         articleTagWrapper.select("tag_id", "count(*) as count").groupBy("tag_id");
         List<ArticleTag> articleTags = articleTagMapper.selectList(articleTagWrapper);
 
         // 获取标签名和标签出现次数
-        Map<Long, Integer> tagCountMap = articleTags.stream()
+        Map<String, Integer> tagCountMap = articleTags.stream()
                 .collect(Collectors.toMap(ArticleTag::getTagId, ArticleTag::getCount));
         LambdaQueryWrapper<Tag> wrapper = new LambdaQueryWrapper<>();
         wrapper.in(Tag::getId, tagCountMap.keySet());

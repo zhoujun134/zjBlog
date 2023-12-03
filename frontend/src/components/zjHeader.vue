@@ -79,8 +79,8 @@ header {
   padding: 0 3%;
   box-sizing: border-box;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-  --text-color: #eeeeee;
-  --text-hover-color: white;
+  --text-color: black;
+  --text-hover-color: blue;
   animation: fadeUpIn 1s;
 }
 

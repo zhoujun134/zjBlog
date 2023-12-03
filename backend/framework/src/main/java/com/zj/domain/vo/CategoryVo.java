@@ -18,7 +18,7 @@ import java.util.Date;
 @ApiModel("文章类别信息")
 public class CategoryVo {
 
-    private Long id;
+    private String id;
 
     /**
      * 分类名
@@ -28,7 +28,7 @@ public class CategoryVo {
     /**
      * 父分类id，如果没有父分类为-1
      */
-    private Long pid;
+    private String pid;
 
     /**
      * 描述

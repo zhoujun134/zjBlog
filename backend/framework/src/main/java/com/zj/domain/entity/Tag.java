@@ -1,12 +1,12 @@
 package com.zj.domain.entity;
 
-import java.util.Date;
-import java.io.Serializable;
-
 import com.baomidou.mybatisplus.annotation.*;
-import lombok.Data;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 标签表(Tag)表实体类
@@ -23,8 +23,8 @@ public class Tag implements Serializable {
     private static final long serialVersionUID = -67606537992531700L;
 
 
-    @TableId(type = IdType.AUTO)
-    private Long id;
+    @TableId(type = IdType.ASSIGN_UUID)
+    private String id;
 
     /**
      * 标签名

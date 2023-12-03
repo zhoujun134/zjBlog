@@ -5,7 +5,7 @@
 
     <!-- 封面 -->
     <zj-cover
-      imgUrl="assets/image/home-cover.jpg"
+      imgUrl="assets/image/home-cover.png"
       title="✨ zhouJun Blog ✨"
       content="这个世界并没有我看上去的那么简单，人各有命，上天注定。有人天生为王，有人落草为寇。脚下的路，如果不是你自己的选择。那这旅程的终点在哪儿，也没人知道。你会走到哪儿，会碰到谁。都不一定！"
     ></zj-cover>
@@ -81,9 +81,9 @@ export default {
       postArticles,
       articleCount,
       pageSize,
-      onCurrentPageChanged
+      onCurrentPageChanged,
     };
-  }
+  },
 };
 </script>
 

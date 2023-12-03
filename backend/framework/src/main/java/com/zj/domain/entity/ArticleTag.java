@@ -1,12 +1,12 @@
 package com.zj.domain.entity;
 
-import java.io.Serializable;
-
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.Data;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
 
 /**
  * 文章-标签表(ArticleTag)表实体类
@@ -26,12 +26,12 @@ public class ArticleTag implements Serializable {
     /**
      * 文章 ID
      */
-    private Long articleId;
+    private String articleId;
 
     /**
      * 标签 ID
      */
-    private Long tagId;
+    private String tagId;
 
     /**
      * 标签的出现次数
@@ -39,7 +39,7 @@ public class ArticleTag implements Serializable {
     @TableField(exist = false)
     private Integer count = 0;
 
-    public ArticleTag(Long articleId, Long tagId) {
+    public ArticleTag(String articleId, String tagId) {
         this.articleId = articleId;
         this.tagId = tagId;
     }

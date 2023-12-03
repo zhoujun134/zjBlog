@@ -33,7 +33,7 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
     private UserService userService;
 
     @Override
-    public ResponseResult<PageVo<CommentVo>> getCommentList(Long articleId, Integer pageNum, Integer pageSize) {
+    public ResponseResult<PageVo<CommentVo>> getCommentList(String articleId, Integer pageNum, Integer pageSize) {
         // 查询所有根评论
         LambdaQueryWrapper<Comment> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(Comment::getArticleId, articleId);
@@ -58,7 +58,7 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
         return ResponseResult.okResult(insert > 0);
     }
 
-    private List<CommentVo> getChildren(Long id) {
+    private List<CommentVo> getChildren(String id) {
         LambdaQueryWrapper<Comment> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(Comment::getToCommentId, id);
         List<Comment> comments = list(wrapper);
@@ -79,7 +79,7 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
     }
 
     @Override
-    public ResponseResult<Boolean> addLike(Long commentId) {
+    public ResponseResult<Boolean> addLike(String commentId) {
         Comment comment = this.getById(commentId);
         if (Objects.isNull(comment)) {
             return ResponseResult.okResult(Boolean.FALSE);

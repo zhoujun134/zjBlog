@@ -8,6 +8,7 @@ import com.zj.constants.SystemConstants;
 import com.zj.domain.ResponseResult;
 import com.zj.domain.dto.ArticleDTO;
 import com.zj.domain.dto.ArticleQueryDTO;
+import com.zj.domain.entity.Article;
 import com.zj.domain.entity.ArticleTag;
 import com.zj.domain.entity.Category;
 import com.zj.domain.entity.Tag;
@@ -15,7 +16,6 @@ import com.zj.domain.vo.*;
 import com.zj.enums.AppHttpCodeEnum;
 import com.zj.exception.SystemException;
 import com.zj.mapper.ArticleMapper;
-import com.zj.domain.entity.Article;
 import com.zj.service.ArticleService;
 import com.zj.service.ArticleTagService;
 import com.zj.service.CategoryService;
@@ -23,9 +23,9 @@ import com.zj.service.TagService;
 import com.zj.utils.Assert;
 import com.zj.utils.BeanCopyUtils;
 import com.zj.utils.DateUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
@@ -38,13 +38,13 @@ import java.util.stream.Collectors;
 @Service
 public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> implements ArticleService {
 
-    @Autowired
+    @Resource
     private CategoryService categoryService;
 
-    @Autowired
+    @Resource
     private ArticleTagService articleTagService;
 
-    @Autowired
+    @Resource
     private TagService tagService;
 
     @Override
@@ -116,7 +116,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     }
 
     @Override
-    public ResponseResult<ArticleDetailsVo> getArticleDetail(Long id) {
+    public ResponseResult<ArticleDetailsVo> getArticleDetail(String id) {
         // 从数据库中查询文章
         Article article = getById(id);
         Assert.notNull(article, AppHttpCodeEnum.RESOURCE_NOT_EXIST);
@@ -132,7 +132,9 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         LambdaQueryWrapper<ArticleTag> articleTagWrapper = new LambdaQueryWrapper<>();
         articleTagWrapper.eq(ArticleTag::getArticleId, id);
         List<ArticleTag> articleTags = articleTagService.list(articleTagWrapper);
-        List<Long> tagIds = articleTags.stream().map(ArticleTag::getTagId).collect(Collectors.toList());
+        List<String> tagIds = articleTags.stream()
+                .map(ArticleTag::getTagId)
+                .collect(Collectors.toList());
 
         if (tagIds.size() > 0) {
             LambdaQueryWrapper<Tag> tagWrapper = new LambdaQueryWrapper<>();
@@ -153,7 +155,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     }
 
     @Override
-    public ResponseResult<Boolean> updateViewCount(Long id) {
+    public ResponseResult<Boolean> updateViewCount(String id) {
         Article article = getById(id);
         Assert.notNull(article, AppHttpCodeEnum.RESOURCE_NOT_EXIST);
         article.setViewCount(article.getViewCount() + 1);
@@ -162,7 +164,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     }
 
     @Override
-    public ResponseResult<PreviousNextArticleVo> getPreviousNextArticle(Long id) {
+    public ResponseResult<PreviousNextArticleVo> getPreviousNextArticle(String id) {
         // 查询当前的文章
         Article article = getById(id);
         Assert.notNull(article, AppHttpCodeEnum.RESOURCE_NOT_EXIST);
@@ -190,7 +192,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     }
 
     @Override
-    public ResponseResult<Long> addArticle(ArticleDTO article) {
+    public ResponseResult<String> addArticle(ArticleDTO article) {
         Article newArticle = BeanCopyUtils.copyBean(article, Article.class);
 
         // 设置分类 id
@@ -213,7 +215,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     }
 
     @Override
-    public ResponseResult<Long> editArticle(ArticleDTO article) {
+    public ResponseResult<String> editArticle(ArticleDTO article) {
         // 移除文章的旧标签
         LambdaQueryWrapper<ArticleTag> articleTagWrapper = new LambdaQueryWrapper<>();
         articleTagWrapper.eq(ArticleTag::getArticleId, article.getId());

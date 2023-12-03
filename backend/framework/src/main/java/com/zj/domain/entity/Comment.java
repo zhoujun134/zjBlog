@@ -1,12 +1,12 @@
 package com.zj.domain.entity;
 
-import java.util.Date;
-import java.io.Serializable;
-
 import com.baomidou.mybatisplus.annotation.*;
-import lombok.Data;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 评论表(CommentDTO)表实体类
@@ -21,18 +21,18 @@ public class Comment implements Serializable {
 
     private static final long serialVersionUID = -80038233433541586L;
 
-    @TableId(type = IdType.AUTO)
-    private Long id;
+    @TableId(type = IdType.ASSIGN_UUID)
+    private String id;
 
     /**
      * 文章id
      */
-    private Long articleId;
+    private String articleId;
 
     /**
      * 根评论id
      */
-    private Long rootId;
+    private String rootId;
 
     /**
      * 评论内容

@@ -1,12 +1,12 @@
 package com.zj.domain.entity;
 
-import java.util.Date;
-import java.io.Serializable;
-
 import com.baomidou.mybatisplus.annotation.*;
-import lombok.Data;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 文章表(Article)表实体类
@@ -14,7 +14,6 @@ import lombok.NoArgsConstructor;
  * @author makejava
  * @since 2022-02-26 15:35:01
  */
-@SuppressWarnings("serial")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,9 +22,8 @@ public class Article implements Serializable {
 
     private static final long serialVersionUID = 894377794856246143L;
 
-
-    @TableId(type = IdType.AUTO)
-    private Long id;
+    @TableId(type = IdType.ASSIGN_UUID)
+    private String id;
 
     /**
      * 标题
@@ -45,7 +43,7 @@ public class Article implements Serializable {
     /**
      * 所属分类id
      */
-    private Long categoryId;
+    private String categoryId;
 
     /**
      * 所属分类名

@@ -61,9 +61,9 @@
 
           <div class="user-info-item">
             <span class="user-info-label">昵称</span>
-            <span class="user-info-value" v-show="!isInEditMode">{{
-                nickName
-              }}</span>
+            <span class="user-info-value" v-show="!isInEditMode">
+              {{ nickName }}
+            </span>
             <el-form-item prop="nickName">
               <el-input
                 v-model="ruleForm.nickName"
@@ -77,14 +77,11 @@
 
           <div class="user-info-item">
             <span class="user-info-label">性别</span>
-            <span class="user-info-value" v-show="!isInEditMode">{{
-                sex == "0" ? "男" : "女"
-              }}</span>
+            <span class="user-info-value" v-show="!isInEditMode">
+              {{ sex == "0" ? "男" : "女" }}
+            </span>
             <el-form-item prop="sex">
-              <el-radio-group
-                v-model="ruleForm.sex"
-                v-show="isInEditMode"
-              >
+              <el-radio-group v-model="ruleForm.sex" v-show="isInEditMode">
                 <el-radio label="男" />
                 <el-radio label="女" />
               </el-radio-group>
@@ -93,9 +90,9 @@
 
           <div class="user-info-item">
             <span class="user-info-label">个性签名</span>
-            <span class="user-info-value" v-show="!isInEditMode">{{
-                signature
-              }}</span>
+            <span class="user-info-value" v-show="!isInEditMode">
+              {{ signature }}
+            </span>
             <el-form-item prop="signature">
               <el-input
                 v-model="ruleForm.signature"
@@ -109,9 +106,9 @@
 
           <div class="user-info-item">
             <span class="user-info-label">电子邮箱</span>
-            <span class="user-info-value" v-show="!isInEditMode">{{
-                email
-              }}</span>
+            <span class="user-info-value" v-show="!isInEditMode">
+              {{ email }}</span
+            >
             <el-form-item prop="email">
               <el-input
                 v-model="ruleForm.email"
@@ -127,8 +124,8 @@
           <div class="user-info-item">
             <span class="user-info-label">手机号码</span>
             <span class="user-info-value" v-show="!isInEditMode">{{
-                phonenumber || "未知"
-              }}</span>
+              phonenumber || "未知"
+            }}</span>
             <el-form-item prop="phonenumber">
               <el-input
                 v-model="ruleForm.phonenumber"
@@ -148,28 +145,23 @@
           color="#1892ff"
           @click="isInEditMode = true"
           v-show="!isInEditMode"
-        >编辑信息
-        </el-button
         >
+          编辑信息
+        </el-button>
         <el-button
           type="primary"
           color="#1892ff"
           @click="saveEditInfo(ruleFormRef)"
           v-show="isInEditMode"
-        >保存
-        </el-button
         >
-        <el-button @click="cancelEditInfo" v-show="isInEditMode"
-        >取消
-        </el-button
-        >
-        <el-button
-          type="danger"
-          @click="handleLogout"
-          v-show="!isInEditMode"
-        >退出登录
-        </el-button
-        >
+          保存
+        </el-button>
+        <el-button @click="cancelEditInfo" v-show="isInEditMode">
+          取消
+        </el-button>
+        <el-button type="danger" @click="handleLogout" v-show="!isInEditMode"
+          >退出登录
+        </el-button>
       </div>
     </div>
 
@@ -198,11 +190,11 @@ export default {
 
     let ruleForm = reactive({
       nickName: userInfo.nickName,
-      sex: userInfo.sex == "0" ? "男" : "女",
+      sex: userInfo.sex === "0" ? "男" : "女",
       email: userInfo.email,
       signature: userInfo.signature,
       phonenumber: userInfo.phonenumber,
-      avatar: userInfo.avatar
+      avatar: userInfo.avatar,
     });
 
     let rules = reactive({
@@ -210,26 +202,25 @@ export default {
         {
           required: true,
           message: "昵称不能为空",
-          trigger: "blur"
-        }
+          trigger: "blur",
+        },
       ],
       email: [
         {
           type: "email",
           required: true,
           message: "邮箱格式错误",
-          trigger: "blur"
-        }
+          trigger: "blur",
+        },
       ],
       phonenumber: [
         {
           required: false,
           message: "手机号码格式错误",
           trigger: "blur",
-          pattern:
-            /(^((\+86)|(86))?(1[3-9])\d{9}$)|(^(0\d{2,3})-?(\d{7,8})$)/
-        }
-      ]
+          pattern: /(^((\+86)|(86))?(1[3-9])\d{9}$)|(^(0\d{2,3})-?(\d{7,8})$)/,
+        },
+      ],
     });
 
     function handleLogout() {
@@ -310,9 +301,9 @@ export default {
       ruleFormRef,
       progress,
       ruleForm,
-      rules
+      rules,
     };
-  }
+  },
 };
 </script>
 

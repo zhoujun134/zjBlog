@@ -1,14 +1,11 @@
 <template>
   <div class="admin-menu">
-    <kila-kila-admin-card />
-    <kila-kila-divider />
+    <zj-admin-card />
+    <zj-divider />
     <el-menu>
       <!-- 首页 -->
       <el-menu-item index="1" @click="$router.push('/')">
-        <font-awesome-icon
-          :icon="['fab', 'fort-awesome']"
-          class="menu-icon"
-        />
+        <font-awesome-icon :icon="['fab', 'fort-awesome']" class="menu-icon" />
         <span>首页</span>
       </el-menu-item>
 
@@ -36,8 +33,7 @@
           :key="category.id"
           :index="'3-' + category.id"
           class="link-item"
-          @click="$router.push('/category/' + category.id)"
-        >🗂️
+          @click="$router.push('/category/' + category.id)">🗂️
           <span class="link-name">{{ category.name }}</span>
           <span>{{ category.count }}</span>
         </el-menu-item>
@@ -84,8 +80,12 @@
 </template>
 
 <script>
+import ZjDivider from "@/components/zjDivider.vue";
+import ZjAdminCard from "@/components/zjAdminCard.vue";
+
 export default {
   name: "zjAdminMenu",
+  components: { ZjAdminCard, ZjDivider }
 };
 </script>
 
